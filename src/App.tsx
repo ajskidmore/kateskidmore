@@ -1,24 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+    <div className="min-h-screen bg-gradient-hero flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-6xl md:text-8xl font-serif font-bold text-white mb-6 animate-fade-in">
+          MARIA SKIDMORE
+        </h1>
+        <p className="text-2xl md:text-3xl text-gray-300 font-light animate-fade-in-up">
+          Violinist. Pianist. Music Director.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
     </div>
   );
 }
