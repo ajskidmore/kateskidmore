@@ -102,7 +102,7 @@ export const Home = () => {
       </section>
 
       {/* Featured Content Section (placeholder) */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-white dark:bg-dark-background">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             className="text-center mb-16"
@@ -111,10 +111,10 @@ export const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-primary-800 dark:text-primary-200 mb-4">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 dark:text-primary-200 mb-4">
               Welcome
             </h2>
-            <p className="text-lg text-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 dark:text-dark-text-secondary max-w-2xl mx-auto">
               {profile?.bio || 'Bringing classical music to life through passionate performance and dedicated music education.'}
             </p>
           </motion.div>
