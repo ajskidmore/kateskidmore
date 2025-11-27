@@ -180,6 +180,11 @@ export interface SocialLinkFormData {
   displayName?: string;
 }
 
+export interface LoginFormData {
+  email: string;
+  password: string;
+}
+
 // Auth types
 export interface User {
   uid: string;

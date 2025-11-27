@@ -39,7 +39,7 @@ export const useDocument = <T extends DocumentData>(
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          setData({ id: docSnap.id, ...docSnap.data() } as T);
+          setData({ id: docSnap.id, ...docSnap.data() } as unknown as T);
         } else {
           setData(null);
         }
@@ -78,7 +78,7 @@ export const useCollection = <T extends DocumentData>(
         const documents = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        })) as T[];
+        })) as unknown as T[];
 
         setData(documents);
         setError(null);
@@ -103,7 +103,7 @@ export const useCollection = <T extends DocumentData>(
       const documents = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      })) as T[];
+      })) as unknown as T[];
 
       setData(documents);
       setError(null);
