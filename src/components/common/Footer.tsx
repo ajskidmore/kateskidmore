@@ -53,14 +53,14 @@ export const Footer = () => {
             <h3 className="font-display text-2xl font-bold text-primary-700 dark:text-primary-300">
               Maria Skidmore
             </h3>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary max-w-xs">
+            <p className="text-sm text-gray-600 dark:text-dark-text-secondary max-w-xs">
               Violinist, Pianist, Music Director - Bringing classical music to life through performance and education.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-text-primary dark:text-dark-text-primary mb-4">
+            <h4 className="font-semibold text-gray-900 dark:text-dark-text-primary mb-4">
               Quick Links
             </h4>
             <nav className="flex flex-col gap-2">
@@ -68,7 +68,7 @@ export const Footer = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="text-sm text-text-secondary dark:text-dark-text-secondary hover:text-primary-600 dark:hover:text-primary-400 transition-colors w-fit"
+                  className="text-sm text-gray-600 dark:text-dark-text-secondary hover:text-primary-600 dark:hover:text-primary-400 transition-colors w-fit"
                 >
                   {link.name}
                 </Link>
@@ -78,7 +78,7 @@ export const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h4 className="font-semibold text-text-primary dark:text-dark-text-primary mb-4">
+            <h4 className="font-semibold text-gray-900 dark:text-dark-text-primary mb-4">
               Connect
             </h4>
             {socialLinks && socialLinks.length > 0 ? (
@@ -89,7 +89,7 @@ export const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary-600 dark:hover:bg-primary-500 text-text-primary dark:text-dark-text-primary hover:text-white transition-colors"
+                    className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary-600 dark:hover:bg-primary-500 text-gray-700 dark:text-dark-text-primary hover:text-white transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.platform}
@@ -99,7 +99,7 @@ export const Footer = () => {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+              <p className="text-sm text-gray-600 dark:text-dark-text-secondary">
                 Follow me on social media for updates
               </p>
             )}
@@ -109,13 +109,13 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary text-center sm:text-left">
+            <p className="text-sm text-gray-600 dark:text-dark-text-secondary text-center sm:text-left">
               &copy; {currentYear} Maria Skidmore. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link
                 to="/admin"
-                className="text-xs text-text-secondary dark:text-dark-text-secondary hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                className="text-xs text-gray-600 dark:text-dark-text-secondary hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               >
                 Admin
               </Link>

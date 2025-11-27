@@ -90,7 +90,7 @@ export const Header = () => {
                   className={`text-sm font-medium transition-colors ${
                     isActive(link.path)
                       ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-text-secondary dark:text-dark-text-secondary hover:text-primary-600 dark:hover:text-primary-400'
+                      : 'text-gray-700 dark:text-dark-text-secondary hover:text-primary-600 dark:hover:text-primary-400'
                   }`}
                 >
                   {link.name}
@@ -125,7 +125,7 @@ export const Header = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Moon className="w-5 h-5 text-text-primary dark:text-dark-text-primary" />
+                    <Moon className="w-5 h-5 text-gray-700 dark:text-dark-text-primary" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -135,7 +135,7 @@ export const Header = () => {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Sun className="w-5 h-5 text-text-primary dark:text-dark-text-primary" />
+                    <Sun className="w-5 h-5 text-gray-700 dark:text-dark-text-primary" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -158,7 +158,7 @@ export const Header = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="w-6 h-6 text-text-primary dark:text-dark-text-primary" />
+                    <X className="w-6 h-6 text-gray-700 dark:text-dark-text-primary" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -168,7 +168,7 @@ export const Header = () => {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="w-6 h-6 text-text-primary dark:text-dark-text-primary" />
+                    <Menu className="w-6 h-6 text-gray-700 dark:text-dark-text-primary" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -181,7 +181,7 @@ export const Header = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="lg:hidden fixed inset-0 top-20 bg-background dark:bg-dark-background z-30"
+            className="lg:hidden fixed inset-0 top-20 bg-white dark:bg-dark-background z-30"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -201,7 +201,7 @@ export const Header = () => {
                       className={`block text-2xl font-medium transition-colors ${
                         isActive(link.path)
                           ? 'text-primary-600 dark:text-primary-400'
-                          : 'text-text-primary dark:text-dark-text-primary hover:text-primary-600 dark:hover:text-primary-400'
+                          : 'text-gray-900 dark:text-dark-text-primary hover:text-primary-600 dark:hover:text-primary-400'
                       }`}
                     >
                       {link.name}
