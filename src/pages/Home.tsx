@@ -17,7 +17,7 @@ export const Home = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient (will be replaced with image if uploaded) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-100 via-accent-50 to-primary-50 dark:from-gray-900 dark:via-primary-900/20 dark:to-gray-900" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-900/20 to-gray-900" />
 
         {/* Profile photo if available */}
         {profile?.photoURL && (
@@ -30,16 +30,16 @@ export const Home = () => {
             <img
               src={profile.photoURL}
               alt={profile.name || 'Maria Skidmore'}
-              className="w-full h-full object-cover opacity-30 dark:opacity-20"
+              className="w-full h-full object-cover opacity-20"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background dark:from-transparent dark:via-dark-background/50 dark:to-dark-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-background/50 to-dark-background" />
           </motion.div>
         )}
 
         {/* Hero Content */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.h1
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-800 dark:text-primary-200 mb-6"
+            className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-200 mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -48,7 +48,7 @@ export const Home = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl sm:text-2xl lg:text-3xl text-text-secondary dark:text-dark-text-secondary mb-8 font-light"
+            className="text-xl sm:text-2xl lg:text-3xl text-dark-text-secondary mb-8 font-light"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -58,7 +58,7 @@ export const Home = () => {
 
           {profile?.tagline && (
             <motion.p
-              className="text-lg text-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto mb-12"
+              className="text-lg text-dark-text-secondary max-w-2xl mx-auto mb-12"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -81,7 +81,7 @@ export const Home = () => {
             </a>
             <a
               href="/contact"
-              className="px-8 py-3 text-lg border-2 border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 rounded-full hover:bg-primary-600 hover:text-white dark:hover:bg-primary-400 dark:hover:text-gray-900 transition-colors font-medium"
+              className="px-8 py-3 text-lg border-2 border-primary-400 text-primary-400 rounded-full hover:bg-primary-400 hover:text-gray-900 transition-colors font-medium"
             >
               Get in Touch
             </a>
@@ -91,7 +91,7 @@ export const Home = () => {
         {/* Scroll indicator */}
         <motion.button
           onClick={scrollToContent}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-secondary dark:text-dark-text-secondary hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-dark-text-secondary hover:text-primary-400 transition-colors"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatType: 'reverse' }}
@@ -102,7 +102,7 @@ export const Home = () => {
       </section>
 
       {/* Featured Content Section (placeholder) */}
-      <section className="py-20 px-4 bg-white dark:bg-dark-background">
+      <section className="py-20 px-4 bg-dark-background">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             className="text-center mb-16"
@@ -111,10 +111,10 @@ export const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 dark:text-primary-200 mb-4">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-primary-200 mb-4">
               Welcome
             </h2>
-            <p className="text-lg text-gray-700 dark:text-dark-text-secondary max-w-2xl mx-auto">
+            <p className="text-lg text-dark-text-secondary max-w-2xl mx-auto">
               {profile?.bio || 'Bringing classical music to life through passionate performance and dedicated music education.'}
             </p>
           </motion.div>

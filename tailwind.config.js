@@ -5,6 +5,8 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: 'class',
+  // Force dark mode by default
+  important: true,
   theme: {
     extend: {
       fontFamily: {

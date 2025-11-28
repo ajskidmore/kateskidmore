@@ -26,29 +26,29 @@ export const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-display text-2xl font-bold text-primary-700 dark:text-primary-300">
+              <h1 className="font-display text-2xl font-bold text-primary-300">
                 Admin Dashboard
               </h1>
-              <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+              <p className="text-sm text-dark-text-secondary">
                 Welcome back, {user?.email}
               </p>
             </div>
             <div className="flex items-center gap-4">
               <Link
                 to="/"
-                className="text-sm text-primary-600 dark:text-primary-400 hover:underline"
+                className="text-sm text-primary-400 hover:underline"
               >
                 View Site
               </Link>
               <button
                 onClick={logout}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-200 dark:bg-gray-700 text-text-primary dark:text-dark-text-primary rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-700 text-dark-text-primary rounded-lg hover:bg-gray-600 transition-colors"
               >
                 <LogOut className="w-4 h-4" />
                 Logout
@@ -66,10 +66,10 @@ export const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display text-3xl font-bold text-text-primary dark:text-dark-text-primary mb-2">
+          <h2 className="font-display text-3xl font-bold text-dark-text-primary mb-2">
             Content Management
           </h2>
-          <p className="text-text-secondary dark:text-dark-text-secondary">
+          <p className="text-dark-text-secondary">
             Manage your website content from here
           </p>
         </motion.div>
@@ -84,17 +84,17 @@ export const Dashboard = () => {
             >
               <Link
                 to={section.path}
-                className="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700 group"
+                className="block p-6 bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-700 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-lg flex items-center justify-center group-hover:bg-primary-600 dark:group-hover:bg-primary-500 transition-colors">
-                    <section.icon className="w-6 h-6 text-primary-600 dark:text-primary-400 group-hover:text-white transition-colors" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary-900/30 rounded-lg flex items-center justify-center group-hover:bg-primary-500 transition-colors">
+                    <section.icon className="w-6 h-6 text-primary-400 group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-grow">
-                    <h3 className="font-semibold text-lg text-text-primary dark:text-dark-text-primary mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    <h3 className="font-semibold text-lg text-dark-text-primary mb-1 group-hover:text-primary-400 transition-colors">
                       {section.name}
                     </h3>
-                    <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                    <p className="text-sm text-dark-text-secondary">
                       {section.description}
                     </p>
                   </div>

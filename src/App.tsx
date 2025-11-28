@@ -21,7 +21,7 @@ import Dashboard from './pages/admin/Dashboard';
 // Layout wrapper for public pages
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen bg-background dark:bg-dark-background">
+    <div className="min-h-screen bg-dark-background">
       <Header />
       <main>{children}</main>
       <Footer />

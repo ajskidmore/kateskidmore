@@ -29,7 +29,7 @@ export const Videos = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4">
+    <div className="min-h-screen pt-32 pb-20 px-4 bg-dark-background">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           className="text-center mb-16"
@@ -37,10 +37,10 @@ export const Videos = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-800 dark:text-primary-200 mb-4">
+          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-200 mb-4">
             Videos
           </h1>
-          <p className="text-lg text-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-dark-text-secondary max-w-2xl mx-auto">
             Watch performances and video content
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export const Videos = () => {
                   whileHover={{ y: -8 }}
                 >
                   {/* Thumbnail */}
-                  <div className="relative aspect-video mb-4 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800">
+                  <div className="relative aspect-video mb-4 rounded-lg overflow-hidden bg-gray-800">
                     {thumbnail ? (
                       <>
                         <img
@@ -79,17 +79,17 @@ export const Videos = () => {
                       </>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <VideoIcon className="w-16 h-16 text-gray-400 dark:text-gray-600" />
+                        <VideoIcon className="w-16 h-16 text-gray-600" />
                       </div>
                     )}
                   </div>
 
                   {/* Info */}
-                  <h3 className="font-display text-xl font-bold text-text-primary dark:text-dark-text-primary mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  <h3 className="font-display text-xl font-bold text-dark-text-primary mb-2 group-hover:text-primary-400 transition-colors">
                     {video.title}
                   </h3>
                   {video.description && (
-                    <p className="text-sm text-text-secondary dark:text-dark-text-secondary line-clamp-2">
+                    <p className="text-sm text-dark-text-secondary line-clamp-2">
                       {video.description}
                     </p>
                   )}
@@ -104,8 +104,8 @@ export const Videos = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <VideoIcon className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-            <p className="text-text-secondary dark:text-dark-text-secondary">
+            <VideoIcon className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+            <p className="text-dark-text-secondary">
               No videos have been added yet. Check back soon!
             </p>
           </motion.div>

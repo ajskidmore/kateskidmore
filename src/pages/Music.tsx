@@ -11,7 +11,7 @@ export const Music = () => {
   }
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4">
+    <div className="min-h-screen pt-32 pb-20 px-4 bg-dark-background">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           className="text-center mb-16"
@@ -19,10 +19,10 @@ export const Music = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-800 dark:text-primary-200 mb-4">
+          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-200 mb-4">
             Music
           </h1>
-          <p className="text-lg text-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-dark-text-secondary max-w-2xl mx-auto">
             Explore my musical recordings and performances
           </p>
         </motion.div>
@@ -39,7 +39,7 @@ export const Music = () => {
                 whileHover={{ y: -8 }}
               >
                 {/* Cover Image */}
-                <div className="relative aspect-square mb-4 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800">
+                <div className="relative aspect-square mb-4 rounded-lg overflow-hidden bg-gray-800">
                   {item.coverImageURL ? (
                     <img
                       src={item.coverImageURL}
@@ -48,22 +48,22 @@ export const Music = () => {
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <MusicIcon className="w-16 h-16 text-gray-400 dark:text-gray-600" />
+                      <MusicIcon className="w-16 h-16 text-gray-600" />
                     </div>
                   )}
                 </div>
 
                 {/* Info */}
-                <h3 className="font-display text-xl font-bold text-text-primary dark:text-dark-text-primary mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                <h3 className="font-display text-xl font-bold text-dark-text-primary mb-2 group-hover:text-primary-400 transition-colors">
                   {item.title}
                 </h3>
                 {item.artist && (
-                  <p className="text-sm text-text-secondary dark:text-dark-text-secondary mb-2">
+                  <p className="text-sm text-dark-text-secondary mb-2">
                     {item.artist}
                   </p>
                 )}
                 {item.description && (
-                  <p className="text-sm text-text-secondary dark:text-dark-text-secondary mb-4 line-clamp-2">
+                  <p className="text-sm text-dark-text-secondary mb-4 line-clamp-2">
                     {item.description}
                   </p>
                 )}
@@ -77,7 +77,7 @@ export const Music = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors"
+                        className="inline-flex items-center gap-1 text-xs px-3 py-1 bg-primary-900/30 text-primary-300 rounded-full hover:bg-primary-900/50 transition-colors"
                         onClick={(e) => e.stopPropagation()}
                       >
                         {link.platform}
@@ -96,8 +96,8 @@ export const Music = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <MusicIcon className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-            <p className="text-text-secondary dark:text-dark-text-secondary">
+            <MusicIcon className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+            <p className="text-dark-text-secondary">
               No music has been added yet. Check back soon!
             </p>
           </motion.div>

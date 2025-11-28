@@ -21,7 +21,7 @@ export const Events = () => {
     >
       <div className="flex flex-col sm:flex-row gap-6">
         {/* Date Badge */}
-        <div className="flex-shrink-0 w-20 h-20 bg-primary-600 dark:bg-primary-500 text-white rounded-lg flex flex-col items-center justify-center">
+        <div className="flex-shrink-0 w-20 h-20 bg-primary-500 text-white rounded-lg flex flex-col items-center justify-center">
           <span className="text-2xl font-bold">
             {event.date?.toDate ? new Date(event.date.toDate()).getDate() : ''}
           </span>
@@ -34,11 +34,11 @@ export const Events = () => {
 
         {/* Event Details */}
         <div className="flex-grow">
-          <h3 className="font-display text-2xl font-bold text-text-primary dark:text-dark-text-primary mb-2">
+          <h3 className="font-display text-2xl font-bold text-dark-text-primary mb-2">
             {event.title}
           </h3>
 
-          <div className="flex flex-col gap-2 mb-4 text-sm text-text-secondary dark:text-dark-text-secondary">
+          <div className="flex flex-col gap-2 mb-4 text-sm text-dark-text-secondary">
             {event.date && (
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
@@ -62,7 +62,7 @@ export const Events = () => {
           </div>
 
           {event.description && (
-            <p className="text-text-secondary dark:text-dark-text-secondary mb-4">
+            <p className="text-dark-text-secondary mb-4">
               {event.description}
             </p>
           )}
@@ -72,7 +72,7 @@ export const Events = () => {
               href={event.ticketURL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm px-4 py-2 bg-primary-600 dark:bg-primary-500 text-white rounded-full hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors"
+              className="inline-flex items-center gap-2 text-sm px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors"
             >
               Get Tickets
               <ExternalLink className="w-4 h-4" />
@@ -84,7 +84,7 @@ export const Events = () => {
   );
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4">
+    <div className="min-h-screen pt-32 pb-20 px-4 bg-dark-background">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           className="text-center mb-16"
@@ -92,10 +92,10 @@ export const Events = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-800 dark:text-primary-200 mb-4">
+          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-200 mb-4">
             Events
           </h1>
-          <p className="text-lg text-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-dark-text-secondary max-w-2xl mx-auto">
             Join me for upcoming performances and events
           </p>
         </motion.div>
@@ -103,7 +103,7 @@ export const Events = () => {
         {/* Upcoming Events */}
         {upcomingEvents && upcomingEvents.length > 0 && (
           <div className="mb-16">
-            <h2 className="font-display text-3xl font-bold text-text-primary dark:text-dark-text-primary mb-8">
+            <h2 className="font-display text-3xl font-bold text-dark-text-primary mb-8">
               Upcoming Events
             </h2>
             <div className="space-y-6">
@@ -117,7 +117,7 @@ export const Events = () => {
         {/* Past Events */}
         {pastEvents && pastEvents.length > 0 && (
           <div>
-            <h2 className="font-display text-3xl font-bold text-text-primary dark:text-dark-text-primary mb-8">
+            <h2 className="font-display text-3xl font-bold text-dark-text-primary mb-8">
               Past Events
             </h2>
             <div className="space-y-6 opacity-75">
@@ -136,8 +136,8 @@ export const Events = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Calendar className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-              <p className="text-text-secondary dark:text-dark-text-secondary">
+              <Calendar className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+              <p className="text-dark-text-secondary">
                 No events scheduled at this time. Check back soon!
               </p>
             </motion.div>

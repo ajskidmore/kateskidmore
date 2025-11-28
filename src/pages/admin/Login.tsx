@@ -35,7 +35,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-primary-50 via-accent-50 to-primary-100 dark:from-gray-900 dark:via-primary-900/20 dark:to-gray-900">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-gray-900 via-primary-900/20 to-gray-900">
       <motion.div
         className="w-full max-w-md"
         initial={{ opacity: 0, y: 20 }}
@@ -45,13 +45,13 @@ export const Login = () => {
         <div className="card">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 dark:bg-primary-500 text-white rounded-full mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-500 text-white rounded-full mb-4">
               <Lock className="w-8 h-8" />
             </div>
-            <h1 className="font-display text-3xl font-bold text-primary-800 dark:text-primary-200 mb-2">
+            <h1 className="font-display text-3xl font-bold text-primary-200 mb-2">
               Admin Login
             </h1>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+            <p className="text-sm text-dark-text-secondary">
               Enter your credentials to access the dashboard
             </p>
           </div>
@@ -62,7 +62,7 @@ export const Login = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-text-primary dark:text-dark-text-primary mb-2"
+                className="block text-sm font-medium text-dark-text-primary mb-2"
               >
                 Email
               </label>
@@ -75,7 +75,7 @@ export const Login = () => {
                 autoComplete="email"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                <p className="mt-1 text-sm text-red-400">
                   {errors.email.message}
                 </p>
               )}
@@ -85,7 +85,7 @@ export const Login = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-text-primary dark:text-dark-text-primary mb-2"
+                className="block text-sm font-medium text-dark-text-primary mb-2"
               >
                 Password
               </label>
@@ -98,7 +98,7 @@ export const Login = () => {
                 autoComplete="current-password"
               />
               {errors.password && (
-                <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                <p className="mt-1 text-sm text-red-400">
                   {errors.password.message}
                 </p>
               )}
@@ -106,8 +106,8 @@ export const Login = () => {
 
             {/* Error Message */}
             {error && (
-              <div className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-lg">
-                <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
+              <div className="p-4 bg-red-900/30 border border-red-700 rounded-lg">
+                <p className="text-sm text-red-300">{error}</p>
               </div>
             )}
 
@@ -135,7 +135,7 @@ export const Login = () => {
           <div className="mt-6 text-center">
             <a
               href="/"
-              className="text-sm text-primary-600 dark:text-primary-400 hover:underline"
+              className="text-sm text-primary-400 hover:underline"
             >
               ← Back to website
             </a>

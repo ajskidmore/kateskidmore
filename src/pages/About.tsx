@@ -10,10 +10,10 @@ export const About = () => {
   }
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4">
+    <div className="min-h-screen pt-32 pb-20 px-4 bg-dark-background">
       <div className="container mx-auto max-w-4xl">
         <motion.h1
-          className="font-display text-5xl lg:text-6xl font-bold text-primary-800 dark:text-primary-200 mb-8"
+          className="font-display text-5xl lg:text-6xl font-bold text-primary-200 mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -45,7 +45,7 @@ export const About = () => {
           {profile?.bio ? (
             <div dangerouslySetInnerHTML={{ __html: profile.bio }} />
           ) : (
-            <p className="text-text-secondary dark:text-dark-text-secondary">
+            <p className="text-dark-text-secondary">
               Profile information will be displayed here once added by the admin.
             </p>
           )}
