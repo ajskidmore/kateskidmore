@@ -1,88 +1,16 @@
 rules_version = '2';
+
+// Firebase Storage Security Rules
 service firebase.storage {
   match /b/{bucket}/o {
-
-    // Helper functions
-    function isAuthenticated() {
-      return request.auth != null;
-    }
-
-    function isAdmin() {
-      return isAuthenticated() && request.auth.token.email != null;
-    }
-
-    function isImageFile() {
-      return request.resource.contentType.matches('image/.*');
-    }
-
-    function isValidImageSize() {
-      // Max size: 10MB
-      return request.resource.size < 10 * 1024 * 1024;
-    }
-
-    // Profile photos folder
-    match /profile-photos/{imageId} {
-      // Anyone can read profile photos
-      allow read: if true;
-
-      // Only admin can upload/delete, must be image file and under size limit
-      allow create, update: if isAdmin() &&
-                              isImageFile() &&
-                              isValidImageSize();
-      allow delete: if isAdmin();
-    }
-
-    // Music cover images folder
-    match /music-covers/{imageId} {
-      // Anyone can read music covers
-      allow read: if true;
-
-      // Only admin can upload/delete, must be image file and under size limit
-      allow create, update: if isAdmin() &&
-                              isImageFile() &&
-                              isValidImageSize();
-      allow delete: if isAdmin();
-    }
-
-    // Video thumbnails folder
-    match /video-thumbnails/{imageId} {
-      // Anyone can read video thumbnails
-      allow read: if true;
-
-      // Only admin can upload/delete, must be image file and under size limit
-      allow create, update: if isAdmin() &&
-                              isImageFile() &&
-                              isValidImageSize();
-      allow delete: if isAdmin();
-    }
-
-    // Post featured images folder
-    match /post-images/{imageId} {
-      // Anyone can read post images
-      allow read: if true;
-
-      // Only admin can upload/delete, must be image file and under size limit
-      allow create, update: if isAdmin() &&
-                              isImageFile() &&
-                              isValidImageSize();
-      allow delete: if isAdmin();
-    }
-
-    // General images folder
-    match /general-images/{imageId} {
-      // Anyone can read general images
-      allow read: if true;
-
-      // Only admin can upload/delete, must be image file and under size limit
-      allow create, update: if isAdmin() &&
-                              isImageFile() &&
-                              isValidImageSize();
-      allow delete: if isAdmin();
-    }
-
-    // Default deny all other paths
+    // Allow public read access to all files
     match /{allPaths=**} {
-      allow read, write: if false;
+      allow read: if true;
+    }
+
+    // Allow authenticated users to upload files
+    match /{allPaths=**} {
+      allow write: if request.auth != null;
     }
   }
 }

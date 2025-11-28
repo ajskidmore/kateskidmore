@@ -21,7 +21,7 @@ export const About = () => {
           About
         </motion.h1>
 
-        {profile?.photoURL && (
+        {profile?.profileImageURL && (
           <motion.div
             className="mb-12 rounded-2xl overflow-hidden shadow-xl max-w-2xl"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -29,7 +29,7 @@ export const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <img
-              src={profile.photoURL}
+              src={profile.profileImageURL}
               alt={profile.name || 'Maria Skidmore'}
               className="w-full h-auto"
             />

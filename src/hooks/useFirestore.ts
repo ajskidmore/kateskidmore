@@ -211,9 +211,41 @@ export const useFirestoreCRUD = <T extends DocumentData>(collectionName: string)
 
 // Specific hooks for each collection
 
-// Profile hook
+// Profile hook - fetches the first profile document
 export const useProfile = () => {
-  return useDocument('profile', 'main');
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const collectionRef = collection(db, COLLECTIONS.PROFILE);
+        const querySnapshot = await getDocs(collectionRef);
+
+        if (!querySnapshot.empty) {
+          const firstDoc = querySnapshot.docs[0];
+          setData({
+            id: firstDoc.id,
+            ...firstDoc.data(),
+          });
+        } else {
+          setData(null);
+        }
+      } catch (err: any) {
+        setError(err.message || 'Failed to fetch profile');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  return { data, loading, error };
 };
 
 // Music hooks
