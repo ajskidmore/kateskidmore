@@ -40,31 +40,31 @@ export const MessagesViewer = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
+      <header className="bg-gradient-grey shadow-sm border-b border-grey">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 to="/admin/dashboard"
-                className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2 hover:bg-grey rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-dark-text-primary" />
+                <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-primary-300">
+                <h1 className="font-display text-2xl font-bold text-beige-light">
                   Contact Messages
                 </h1>
-                <p className="text-sm text-dark-text-secondary">
+                <p className="text-sm text-beige">
                   View and manage contact form submissions
                 </p>
               </div>
             </div>
             {messages && messages.length > 0 && (
-              <div className="flex items-center gap-2 px-4 py-2 bg-gray-700 rounded-lg">
-                <Mail className="w-5 h-5 text-primary-400" />
-                <span className="text-sm text-dark-text-primary">
+              <div className="flex items-center gap-2 px-4 py-2 bg-grey rounded-lg">
+                <Mail className="w-5 h-5 text-grey-dark" />
+                <span className="text-sm text-grey-dark">
                   {messages.filter((m: any) => !m.isRead).length} unread
                 </span>
               </div>
@@ -92,7 +92,7 @@ export const MessagesViewer = () => {
                 {/* Unread Indicator */}
                 {!message.isRead && (
                   <div className="absolute top-4 right-4">
-                    <div className="w-3 h-3 bg-primary-500 rounded-full animate-pulse" />
+                    <div className="w-3 h-3 bg-grey-dark rounded-full animate-pulse" />
                   </div>
                 )}
 
@@ -100,16 +100,16 @@ export const MessagesViewer = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 bg-gray-800 rounded-lg">
-                        <User className="w-5 h-5 text-primary-400" />
+                      <div className="p-2 bg-gradient-grey rounded-lg">
+                        <User className="w-5 h-5 text-grey-dark" />
                       </div>
                       <div>
-                        <h3 className="font-display text-lg font-bold text-dark-text-primary">
+                        <h3 className="font-display text-lg font-bold text-grey-dark">
                           {message.name}
                         </h3>
                         <a
                           href={`mailto:${message.email}`}
-                          className="text-sm text-primary-400 hover:underline"
+                          className="text-sm text-grey-dark hover:underline"
                         >
                           {message.email}
                         </a>
@@ -117,13 +117,13 @@ export const MessagesViewer = () => {
                     </div>
 
                     {message.subject && (
-                      <div className="flex items-center gap-2 text-sm text-dark-text-secondary mb-2">
+                      <div className="flex items-center gap-2 text-sm text-grey-dark mb-2">
                         <MessageSquare className="w-4 h-4" />
                         <span className="font-medium">Subject: {message.subject}</span>
                       </div>
                     )}
 
-                    <div className="flex items-center gap-2 text-xs text-dark-text-secondary">
+                    <div className="flex items-center gap-2 text-xs text-beige">
                       <Clock className="w-3 h-3" />
                       <span>{formatDate(message.createdAt)}</span>
                     </div>
@@ -134,8 +134,8 @@ export const MessagesViewer = () => {
                     onClick={() => toggleReadStatus(message.id, message.isRead)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
                       message.isRead
-                        ? 'bg-gray-700 hover:bg-gray-600 text-dark-text-primary'
-                        : 'bg-primary-500 hover:bg-primary-600 text-white'
+                        ? 'bg-grey hover:bg-grey-dark text-grey-dark'
+                        : 'bg-grey-dark hover:bg-grey text-white'
                     }`}
                   >
                     {message.isRead ? (
@@ -153,8 +153,8 @@ export const MessagesViewer = () => {
                 </div>
 
                 {/* Message Content */}
-                <div className="bg-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-dark-text-primary whitespace-pre-wrap">
+                <div className="bg-gradient-grey rounded-lg p-4">
+                  <p className="text-sm text-grey-dark whitespace-pre-wrap">
                     {message.message}
                   </p>
                 </div>
@@ -162,8 +162,8 @@ export const MessagesViewer = () => {
             ))
           ) : (
             <div className="text-center py-20">
-              <Mail className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <p className="text-dark-text-secondary">No messages yet.</p>
+              <Mail className="w-16 h-16 text-grey mx-auto mb-4" />
+              <p className="text-beige">No messages yet.</p>
             </div>
           )}
         </div>

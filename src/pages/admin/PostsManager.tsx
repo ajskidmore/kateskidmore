@@ -47,7 +47,7 @@ export const PostsManager = () => {
       content: '',
       imageURL: '',
       published: false,
-      publishDate: new Date().toISOString().slice(0, 16),
+      publishDate: new Date().toISOString().slice(0, 10), // YYYY-MM-DD format
     },
   });
 
@@ -57,12 +57,20 @@ export const PostsManager = () => {
   const handleEdit = (post: any) => {
     setEditingId(post.id);
     setShowForm(true);
+
+    // Convert Firestore Timestamp to date format (YYYY-MM-DD)
+    let publishDateString = new Date().toISOString().slice(0, 10);
+    if (post.publishDate) {
+      const dateObj = post.publishDate.toDate ? post.publishDate.toDate() : new Date(post.publishDate);
+      publishDateString = dateObj.toISOString().slice(0, 10);
+    }
+
     setValue('title', post.title || '');
     setValue('excerpt', post.excerpt || '');
     setValue('content', post.content || '');
     setValue('imageURL', post.imageURL || '');
     setValue('published', post.published || false);
-    setValue('publishDate', post.publishDate || new Date().toISOString().slice(0, 16));
+    setValue('publishDate', publishDateString);
     setTags(post.tags || []);
   };
 
@@ -95,12 +103,25 @@ export const PostsManager = () => {
   const onSubmit = async (data: PostFormData) => {
     setSaving(true);
 
-    const postData = {
-      ...data,
-      tags,
-    };
-
     try {
+      // Convert publishDate string to Date object for Firestore
+      // The date input provides a string in format: YYYY-MM-DD
+      const publishDate = new Date(data.publishDate);
+
+      // Validate the date is valid
+      if (isNaN(publishDate.getTime())) {
+        console.error('Invalid date:', data.publishDate);
+        alert('Invalid publish date. Please select a valid date.');
+        setSaving(false);
+        return;
+      }
+
+      const postData = {
+        ...data,
+        tags,
+        publishDate,
+      };
+
       if (editingId) {
         await update(editingId, postData);
       } else {
@@ -110,6 +131,7 @@ export const PostsManager = () => {
       handleCancelEdit();
     } catch (error) {
       console.error('Error saving post:', error);
+      alert('Error saving post. Please try again.');
     } finally {
       setSaving(false);
     }
@@ -120,23 +142,23 @@ export const PostsManager = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
+      <header className="bg-gradient-grey shadow-sm border-b border-grey">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 to="/admin/dashboard"
-                className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2 hover:bg-grey rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-dark-text-primary" />
+                <ArrowLeft className="w-5 h-5 text-beige-light" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-primary-300">
+                <h1 className="font-display text-2xl font-bold text-beige-light">
                   Posts Manager
                 </h1>
-                <p className="text-sm text-dark-text-secondary">
+                <p className="text-sm text-beige">
                   Manage blog posts and news updates
                 </p>
               </div>
@@ -166,14 +188,14 @@ export const PostsManager = () => {
               className="card mb-8"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="font-display text-xl font-bold text-dark-text-primary">
+                <h2 className="font-display text-xl font-bold text-grey-dark">
                   {editingId ? 'Edit Post' : 'Add New Post'}
                 </h2>
                 <button
                   onClick={handleCancelEdit}
-                  className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                  className="p-2 hover:bg-grey rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-dark-text-primary" />
+                  <X className="w-5 h-5 text-grey-dark" />
                 </button>
               </div>
 
@@ -190,7 +212,7 @@ export const PostsManager = () => {
 
                 {/* Title */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Title *
                   </label>
                   <input
@@ -206,7 +228,7 @@ export const PostsManager = () => {
 
                 {/* Excerpt */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Excerpt
                   </label>
                   <textarea
@@ -234,7 +256,7 @@ export const PostsManager = () => {
                 {/* Tags */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <label className="block text-sm font-medium text-dark-text-primary">
+                    <label className="block text-sm font-medium text-grey-dark">
                       Tags
                     </label>
                   </div>
@@ -255,7 +277,7 @@ export const PostsManager = () => {
                     <button
                       type="button"
                       onClick={addTag}
-                      className="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                      className="px-4 py-2 bg-grey-dark text-white rounded-lg hover:bg-grey transition-colors"
                     >
                       Add
                     </button>
@@ -265,7 +287,7 @@ export const PostsManager = () => {
                       {tags.map((tag, index) => (
                         <span
                           key={index}
-                          className="inline-flex items-center gap-1 px-3 py-1 bg-primary-900/30 text-primary-300 rounded-full text-sm"
+                          className="inline-flex items-center gap-1 px-3 py-1 bg-gray-200 text-grey-dark rounded-full text-sm"
                         >
                           <Tag className="w-3 h-3" />
                           {tag}
@@ -285,12 +307,12 @@ export const PostsManager = () => {
                 {/* Publish Settings */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-dark-text-primary mb-2">
-                      Publish Date & Time *
+                    <label className="block text-sm font-medium text-grey-dark mb-2">
+                      Publish Date *
                     </label>
                     <input
                       {...register('publishDate')}
-                      type="datetime-local"
+                      type="date"
                       className="input-field"
                     />
                     {errors.publishDate && (
@@ -299,16 +321,16 @@ export const PostsManager = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                    <label className="block text-sm font-medium text-grey-dark mb-2">
                       Status
                     </label>
-                    <label className="flex items-center gap-3 p-4 bg-gray-800 rounded-lg cursor-pointer">
+                    <label className="flex items-center gap-3 p-4 bg-gradient-grey rounded-lg cursor-pointer">
                       <input
                         {...register('published')}
                         type="checkbox"
-                        className="w-5 h-5 text-primary-500 bg-gray-700 border-gray-600 rounded focus:ring-primary-500"
+                        className="w-5 h-5 text-grey-dark bg-grey border-beige-dark rounded focus:ring-primary-500"
                       />
-                      <span className="text-sm text-dark-text-primary">Published</span>
+                      <span className="text-sm text-beige-light">Published</span>
                     </label>
                   </div>
                 </div>
@@ -318,7 +340,7 @@ export const PostsManager = () => {
                   <button
                     type="button"
                     onClick={handleCancelEdit}
-                    className="px-6 py-2 bg-gray-700 text-dark-text-primary rounded-lg hover:bg-gray-600 transition-colors"
+                    className="px-6 py-2 bg-grey text-white rounded-lg hover:bg-grey-dark hover:text-white transition-colors"
                   >
                     Cancel
                   </button>
@@ -358,7 +380,7 @@ export const PostsManager = () => {
               >
                 {/* Featured Image */}
                 {post.imageURL && (
-                  <div className="relative aspect-video mb-4 rounded-lg overflow-hidden bg-gray-800">
+                  <div className="relative aspect-video mb-4 rounded-lg overflow-hidden bg-gradient-grey">
                     <img
                       src={post.imageURL}
                       alt={post.title}
@@ -371,20 +393,20 @@ export const PostsManager = () => {
                 <div className="mb-3">
                   <span className={`inline-block px-2 py-1 text-xs font-medium rounded ${
                     post.published
-                      ? 'bg-green-900/30 text-green-300'
-                      : 'bg-gray-700 text-gray-300'
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-grey text-white'
                   }`}>
                     {post.published ? 'Published' : 'Draft'}
                   </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-lg font-bold text-dark-text-primary mb-2">
+                <h3 className="font-display text-lg font-bold text-grey-dark mb-2">
                   {post.title}
                 </h3>
 
                 {post.excerpt && (
-                  <p className="text-sm text-dark-text-secondary mb-3 line-clamp-2">
+                  <p className="text-sm text-grey-dark mb-3 line-clamp-2">
                     {post.excerpt}
                   </p>
                 )}
@@ -395,14 +417,14 @@ export const PostsManager = () => {
                     {post.tags.slice(0, 3).map((tag: string, idx: number) => (
                       <span
                         key={idx}
-                        className="inline-flex items-center gap-1 px-2 py-0.5 bg-primary-900/30 text-primary-300 rounded-full text-xs"
+                        className="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-200 text-grey-dark rounded-full text-xs"
                       >
                         <Tag className="w-2.5 h-2.5" />
                         {tag}
                       </span>
                     ))}
                     {post.tags.length > 3 && (
-                      <span className="inline-flex items-center px-2 py-0.5 text-gray-400 text-xs">
+                      <span className="inline-flex items-center px-2 py-0.5 text-grey text-xs">
                         +{post.tags.length - 3} more
                       </span>
                     )}
@@ -410,19 +432,22 @@ export const PostsManager = () => {
                 )}
 
                 {/* Publish Date */}
-                <p className="text-xs text-dark-text-secondary mb-4">
-                  {new Date(post.publishDate).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
+                <p className="text-xs text-grey-dark mb-4">
+                  {post.publishDate && (() => {
+                    const dateObj = post.publishDate.toDate ? post.publishDate.toDate() : new Date(post.publishDate);
+                    return dateObj.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    });
+                  })()}
                 </p>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2 mt-auto pt-4 border-t border-gray-700">
+                <div className="flex gap-2 mt-auto pt-4 border-t border-grey">
                   <button
                     onClick={() => handleEdit(post)}
-                    className="flex-1 p-2 bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 p-2 bg-grey-dark rounded-lg hover:bg-grey transition-colors flex items-center justify-center gap-2"
                   >
                     <Edit2 className="w-4 h-4 text-white" />
                     <span className="text-sm text-white">Edit</span>
@@ -439,8 +464,8 @@ export const PostsManager = () => {
             ))
           ) : (
             <div className="col-span-full text-center py-20">
-              <FileText className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <p className="text-dark-text-secondary">No posts added yet. Click "Add Post" to get started.</p>
+              <FileText className="w-16 h-16 text-grey mx-auto mb-4" />
+              <p className="text-beige">No posts added yet. Click "Add Post" to get started.</p>
             </div>
           )}
         </div>

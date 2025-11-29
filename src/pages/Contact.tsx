@@ -37,7 +37,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4 bg-dark-background">
+    <div className="min-h-screen pt-32 pb-20 px-4 bg-white">
       <div className="container mx-auto max-w-2xl">
         <motion.div
           className="text-center mb-16"
@@ -45,10 +45,10 @@ export const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-200 mb-4">
+          <h1 className="font-display text-5xl lg:text-6xl font-bold text-purple mb-4">
             Contact
           </h1>
-          <p className="text-lg text-dark-text-secondary">
+          <p className="text-lg text-grey">
             Get in touch for bookings, collaborations, or inquiries
           </p>
         </motion.div>
@@ -61,11 +61,11 @@ export const Contact = () => {
         >
           {submitted ? (
             <div className="text-center py-12">
-              <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-              <h2 className="font-display text-2xl font-bold text-dark-text-primary mb-2">
+              <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
+              <h2 className="font-display text-2xl font-bold text-grey-dark mb-2">
                 Message Sent!
               </h2>
-              <p className="text-dark-text-secondary">
+              <p className="text-grey">
                 Thank you for reaching out. I'll get back to you as soon as possible.
               </p>
             </div>
@@ -75,7 +75,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-dark-text-primary mb-2"
+                  className="block text-sm font-medium text-grey-dark mb-2"
                 >
                   Name *
                 </label>
@@ -97,7 +97,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-dark-text-primary mb-2"
+                  className="block text-sm font-medium text-grey-dark mb-2"
                 >
                   Email *
                 </label>
@@ -119,7 +119,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-dark-text-primary mb-2"
+                  className="block text-sm font-medium text-grey-dark mb-2"
                 >
                   Subject
                 </label>
@@ -141,7 +141,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-dark-text-primary mb-2"
+                  className="block text-sm font-medium text-grey-dark mb-2"
                 >
                   Message *
                 </label>
@@ -195,7 +195,7 @@ export const Contact = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="flex items-center justify-center gap-2 text-dark-text-secondary">
+          <div className="flex items-center justify-center gap-2 text-grey">
             <Mail className="w-5 h-5" />
             <p className="text-sm">
               Or reach out directly via social media (links in footer)

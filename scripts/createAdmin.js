@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Admin User Creation Script for Maria Skidmore Portfolio
+ * Admin User Creation Script for Kate Skidmore Portfolio
  *
  * This script creates an admin user in Firebase Authentication.
  * Run with: node scripts/createAdmin.js
@@ -26,7 +26,7 @@ function question(prompt) {
 }
 
 async function createAdmin() {
-  console.log('\n🎵 Maria Skidmore Portfolio - Admin Setup\n');
+  console.log('\n🎵 Kate Skidmore Portfolio - Admin Setup\n');
   console.log('This script will create an admin user in Firebase Authentication.\n');
 
   try {

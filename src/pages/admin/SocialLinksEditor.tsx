@@ -80,23 +80,23 @@ export const SocialLinksEditor = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
+      <header className="bg-gradient-grey shadow-sm border-b border-grey">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 to="/admin/dashboard"
-                className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2 hover:bg-grey rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-dark-text-primary" />
+                <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-primary-300">
+                <h1 className="font-display text-2xl font-bold text-beige-light">
                   Social Media Links
                 </h1>
-                <p className="text-sm text-dark-text-secondary">
+                <p className="text-sm text-beige">
                   Manage your social media profiles
                 </p>
               </div>
@@ -114,13 +114,13 @@ export const SocialLinksEditor = () => {
         >
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             <div className="card">
-              <h2 className="font-display text-xl font-bold text-dark-text-primary mb-6">
+              <h2 className="font-display text-xl font-bold text-grey-dark mb-6">
                 Social Media Profiles
               </h2>
               <div className="space-y-6">
                 {/* Instagram */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-grey-dark mb-2">
                     <Instagram className="w-5 h-5 text-pink-500" />
                     Instagram
                   </label>
@@ -137,7 +137,7 @@ export const SocialLinksEditor = () => {
 
                 {/* Facebook */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-grey-dark mb-2">
                     <Facebook className="w-5 h-5 text-blue-500" />
                     Facebook
                   </label>
@@ -154,7 +154,7 @@ export const SocialLinksEditor = () => {
 
                 {/* YouTube */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-grey-dark mb-2">
                     <Youtube className="w-5 h-5 text-red-500" />
                     YouTube
                   </label>
@@ -171,7 +171,7 @@ export const SocialLinksEditor = () => {
 
                 {/* Twitter */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-grey-dark mb-2">
                     <Twitter className="w-5 h-5 text-blue-400" />
                     Twitter / X
                   </label>
@@ -188,7 +188,7 @@ export const SocialLinksEditor = () => {
 
                 {/* Spotify */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="flex items-center gap-2 text-sm font-medium text-grey-dark mb-2">
                     <Music className="w-5 h-5 text-green-500" />
                     Spotify
                   </label>

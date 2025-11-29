@@ -59,7 +59,7 @@ export const Loading = ({ size = 'medium', fullScreen = false, message }: Loadin
         {[0, 1, 2].map((index) => (
           <motion.div
             key={index}
-            className={`${dotSize[size]} bg-primary-400 rounded-full`}
+            className={`${dotSize[size]} bg-grey-dark rounded-full`}
             variants={dotVariants}
             transition={dotTransition}
           />
@@ -67,7 +67,7 @@ export const Loading = ({ size = 'medium', fullScreen = false, message }: Loadin
       </motion.div>
       {message && (
         <motion.p
-          className="text-sm text-dark-text-secondary"
+          className="text-sm text-grey"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -81,7 +81,7 @@ export const Loading = ({ size = 'medium', fullScreen = false, message }: Loadin
   if (fullScreen) {
     return (
       <motion.div
-        className="fixed inset-0 bg-dark-background flex items-center justify-center z-50"
+        className="fixed inset-0 bg-white flex items-center justify-center z-50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

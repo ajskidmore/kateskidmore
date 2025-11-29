@@ -1,8 +1,8 @@
-# Maria Skidmore - Violinist, Pianist & Music Director Portfolio
+# Kate Skidmore - Violinist, Pianist & Music Director Portfolio
 
 A modern, elegant portfolio website built with React, Vite, Firebase, and TailwindCSS. Features a public-facing website showcasing musical work and performances, plus a comprehensive admin dashboard for content management.
 
-🌐 **Live Site**: [https://mariaskidmore-6c8be.web.app](https://mariaskidmore-6c8be.web.app)
+🌐 **Live Site**: [https://kateskidmore-bcb45.web.app](https://kateskidmore-bcb45.web.app)
 
 ## ✨ Features
 
@@ -66,7 +66,7 @@ A modern, elegant portfolio website built with React, Vite, Firebase, and Tailwi
 
 ```bash
 git clone <repository-url>
-cd mariaskidmore
+cd kateskidmore
 ```
 
 ### 2. Install Dependencies
@@ -216,7 +216,7 @@ Your site will be live at: `https://your-project-id.web.app`
 ## 📁 Project Structure
 
 ```
-mariaskidmore/
+kateskidmore/
 ├── public/              # Static assets
 ├── src/
 │   ├── components/      # React components

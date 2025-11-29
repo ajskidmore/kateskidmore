@@ -56,28 +56,28 @@ export const Header = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-dark-background/95 backdrop-blur-md shadow-md'
-          : 'bg-transparent backdrop-blur-sm'
+          ? 'bg-white/95 backdrop-blur-md shadow-md'
+          : 'bg-white/80 backdrop-blur-sm'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center h-20">
           {/* Logo / Name */}
           <Link to="/" className="flex-shrink-0">
             <motion.h1
-              className="font-display text-2xl sm:text-3xl font-bold text-primary-300"
+              className="font-display text-2xl sm:text-3xl font-bold text-purple"
               whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 400 }}
             >
-              Maria Skidmore
+              Kate Skidmore
             </motion.h1>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8 ml-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -87,15 +87,15 @@ export const Header = () => {
                 <span
                   className={`text-sm font-medium transition-colors ${
                     isActive(link.path)
-                      ? 'text-primary-400'
-                      : 'text-dark-text-secondary hover:text-primary-400'
+                      ? 'text-grey-dark'
+                      : 'text-grey hover:text-grey-dark'
                   }`}
                 >
                   {link.name}
                 </span>
                 {isActive(link.path) && (
                   <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-400"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-grey-dark"
                     layoutId="activeLink"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
@@ -105,11 +105,11 @@ export const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 lg:hidden ml-auto">
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-full hover:bg-gray-800 transition-colors"
+              className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle menu"
@@ -123,7 +123,7 @@ export const Header = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="w-6 h-6 text-dark-text-primary" />
+                    <X className="w-6 h-6 text-grey-dark" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -133,7 +133,7 @@ export const Header = () => {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="w-6 h-6 text-dark-text-primary" />
+                    <Menu className="w-6 h-6 text-grey-dark" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -146,7 +146,7 @@ export const Header = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="lg:hidden fixed inset-0 top-20 bg-dark-background z-30"
+            className="lg:hidden fixed inset-0 top-20 bg-white/95 backdrop-blur-md z-30"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -165,8 +165,8 @@ export const Header = () => {
                       to={link.path}
                       className={`block text-2xl font-medium transition-colors ${
                         isActive(link.path)
-                          ? 'text-primary-400'
-                          : 'text-dark-text-primary hover:text-primary-400'
+                          ? 'text-grey-dark'
+                          : 'text-grey hover:text-grey-dark'
                       }`}
                     >
                       {link.name}

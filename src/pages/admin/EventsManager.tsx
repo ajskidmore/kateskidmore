@@ -48,9 +48,17 @@ export const EventsManager = () => {
   const handleEdit = (event: any) => {
     setEditingId(event.id);
     setShowForm(true);
+
+    // Convert Firestore Timestamp to YYYY-MM-DD format for date input
+    let dateString = '';
+    if (event.date) {
+      const dateObj = event.date.toDate ? event.date.toDate() : new Date(event.date);
+      dateString = dateObj.toISOString().split('T')[0];
+    }
+
     reset({
       title: event.title || '',
-      date: event.date || '',
+      date: dateString,
       time: event.time || '',
       location: event.location || '',
       description: event.description || '',
@@ -75,15 +83,33 @@ export const EventsManager = () => {
     setSaving(true);
 
     try {
+      // Convert date string to Date object for Firestore
+      // The date input provides a string in format: YYYY-MM-DD
+      const eventDate = new Date(data.date);
+
+      // Validate the date is valid
+      if (isNaN(eventDate.getTime())) {
+        console.error('Invalid date:', data.date);
+        alert('Invalid event date. Please select a valid date.');
+        setSaving(false);
+        return;
+      }
+
+      const eventData = {
+        ...data,
+        date: eventDate,
+      };
+
       if (editingId) {
-        await update(editingId, data);
+        await update(editingId, eventData);
       } else {
-        await create(data);
+        await create(eventData);
       }
       await refetch();
       handleCancelEdit();
     } catch (error) {
       console.error('Error saving event:', error);
+      alert('Error saving event. Please try again.');
     } finally {
       setSaving(false);
     }
@@ -94,23 +120,23 @@ export const EventsManager = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
+      <header className="bg-gradient-grey shadow-sm border-b border-grey">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 to="/admin/dashboard"
-                className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2 hover:bg-grey rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-dark-text-primary" />
+                <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-primary-300">
+                <h1 className="font-display text-2xl font-bold text-beige-light">
                   Events Manager
                 </h1>
-                <p className="text-sm text-dark-text-secondary">
+                <p className="text-sm text-beige">
                   Manage upcoming performances and events
                 </p>
               </div>
@@ -140,21 +166,21 @@ export const EventsManager = () => {
               className="card mb-8"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="font-display text-xl font-bold text-dark-text-primary">
+                <h2 className="font-display text-xl font-bold text-grey-dark">
                   {editingId ? 'Edit Event' : 'Add New Event'}
                 </h2>
                 <button
                   onClick={handleCancelEdit}
-                  className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                  className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-dark-text-primary" />
+                  <X className="w-5 h-5 text-grey-dark" />
                 </button>
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Title */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Event Title *
                   </label>
                   <input
@@ -171,7 +197,7 @@ export const EventsManager = () => {
                 {/* Date and Time */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                    <label className="block text-sm font-medium text-grey-dark mb-2">
                       Date *
                     </label>
                     <input
@@ -185,7 +211,7 @@ export const EventsManager = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                    <label className="block text-sm font-medium text-grey-dark mb-2">
                       Time
                     </label>
                     <input
@@ -199,7 +225,7 @@ export const EventsManager = () => {
 
                 {/* Location */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Location
                   </label>
                   <input
@@ -212,7 +238,7 @@ export const EventsManager = () => {
 
                 {/* Description */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Description
                   </label>
                   <textarea
@@ -225,7 +251,7 @@ export const EventsManager = () => {
 
                 {/* Ticket URL */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Ticket URL
                   </label>
                   <input
@@ -244,7 +270,7 @@ export const EventsManager = () => {
                   <button
                     type="button"
                     onClick={handleCancelEdit}
-                    className="px-6 py-2 bg-gray-700 text-dark-text-primary rounded-lg hover:bg-gray-600 transition-colors"
+                    className="btn-secondary"
                   >
                     Cancel
                   </button>
@@ -283,37 +309,44 @@ export const EventsManager = () => {
                 className="card group relative"
               >
                 {/* Date Badge */}
-                <div className="absolute top-4 right-4 bg-primary-500 text-white px-3 py-2 rounded-lg text-center">
-                  <div className="text-xs font-medium">
-                    {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
-                  </div>
-                  <div className="text-xl font-bold">
-                    {new Date(event.date).getDate()}
-                  </div>
+                <div className="absolute top-4 right-4 bg-grey-dark text-white px-3 py-2 rounded-lg text-center">
+                  {event.date && (() => {
+                    const dateObj = event.date.toDate ? event.date.toDate() : new Date(event.date);
+                    return (
+                      <>
+                        <div className="text-xs font-medium">
+                          {dateObj.toLocaleDateString('en-US', { month: 'short' })}
+                        </div>
+                        <div className="text-xl font-bold">
+                          {dateObj.getDate()}
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
 
                 {/* Content */}
                 <div className="pr-20">
-                  <h3 className="font-display text-lg font-bold text-dark-text-primary mb-2">
+                  <h3 className="font-display text-lg font-bold text-grey-dark mb-2">
                     {event.title}
                   </h3>
 
                   {event.time && (
-                    <div className="flex items-center gap-2 text-sm text-dark-text-secondary mb-1">
+                    <div className="flex items-center gap-2 text-sm text-grey mb-1">
                       <Clock className="w-4 h-4" />
                       <span>{event.time}</span>
                     </div>
                   )}
 
                   {event.location && (
-                    <div className="flex items-center gap-2 text-sm text-dark-text-secondary mb-3">
+                    <div className="flex items-center gap-2 text-sm text-grey mb-3">
                       <MapPin className="w-4 h-4" />
                       <span>{event.location}</span>
                     </div>
                   )}
 
                   {event.description && (
-                    <p className="text-sm text-dark-text-secondary mb-3 line-clamp-3">
+                    <p className="text-sm text-grey mb-3 line-clamp-3">
                       {event.description}
                     </p>
                   )}
@@ -323,7 +356,7 @@ export const EventsManager = () => {
                       href={event.ticketURL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block text-xs text-primary-400 hover:underline"
+                      className="inline-block text-xs text-grey-dark hover:underline"
                     >
                       Get Tickets
                     </a>
@@ -331,10 +364,10 @@ export const EventsManager = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2 mt-4 pt-4 border-t border-gray-700">
+                <div className="flex gap-2 mt-4 pt-4 border-t border-beige-dark">
                   <button
                     onClick={() => handleEdit(event)}
-                    className="flex-1 p-2 bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 p-2 bg-grey-dark rounded-lg hover:bg-grey transition-colors flex items-center justify-center gap-2"
                   >
                     <Edit2 className="w-4 h-4 text-white" />
                     <span className="text-sm text-white">Edit</span>
@@ -351,8 +384,8 @@ export const EventsManager = () => {
             ))
           ) : (
             <div className="col-span-full text-center py-20">
-              <Calendar className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <p className="text-dark-text-secondary">No events added yet. Click "Add Event" to get started.</p>
+              <Calendar className="w-16 h-16 text-grey mx-auto mb-4" />
+              <p className="text-grey">No events added yet. Click "Add Event" to get started.</p>
             </div>
           )}
         </div>

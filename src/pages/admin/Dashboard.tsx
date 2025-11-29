@@ -9,6 +9,7 @@ import {
   FileText,
   MessageSquare,
   Share2,
+  Star,
   LogOut,
 } from 'lucide-react';
 
@@ -17,6 +18,7 @@ export const Dashboard = () => {
 
   const adminSections = [
     { name: 'Profile', icon: User, path: '/admin/profile', description: 'Edit your profile and bio' },
+    { name: 'Featured Content', icon: Star, path: '/admin/featured', description: 'Manage featured home page content' },
     { name: 'Music', icon: Music, path: '/admin/music', description: 'Manage music releases' },
     { name: 'Videos', icon: Video, path: '/admin/videos', description: 'Manage video content' },
     { name: 'Events', icon: Calendar, path: '/admin/events', description: 'Manage upcoming events' },
@@ -26,29 +28,29 @@ export const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
+      <header className="bg-gradient-grey shadow-sm border-b border-grey">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-display text-2xl font-bold text-primary-300">
+              <h1 className="font-display text-2xl font-bold text-beige-light">
                 Admin Dashboard
               </h1>
-              <p className="text-sm text-dark-text-secondary">
+              <p className="text-sm text-beige">
                 Welcome back, {user?.email}
               </p>
             </div>
             <div className="flex items-center gap-4">
               <Link
                 to="/"
-                className="text-sm text-primary-400 hover:underline"
+                className="text-sm text-beige hover:text-white hover:underline"
               >
                 View Site
               </Link>
               <button
                 onClick={logout}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-700 text-dark-text-primary rounded-lg hover:bg-gray-600 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-grey-dark text-white rounded-lg hover:bg-grey transition-colors"
               >
                 <LogOut className="w-4 h-4" />
                 Logout
@@ -66,10 +68,10 @@ export const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display text-3xl font-bold text-dark-text-primary mb-2">
+          <h2 className="font-display text-3xl font-bold text-grey-dark mb-2">
             Content Management
           </h2>
-          <p className="text-dark-text-secondary">
+          <p className="text-grey">
             Manage your website content from here
           </p>
         </motion.div>
@@ -84,17 +86,17 @@ export const Dashboard = () => {
             >
               <Link
                 to={section.path}
-                className="block p-6 bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-700 group"
+                className="block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-beige-dark group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-900/30 rounded-lg flex items-center justify-center group-hover:bg-primary-500 transition-colors">
-                    <section.icon className="w-6 h-6 text-primary-400 group-hover:text-white transition-colors" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center group-hover:bg-grey-dark transition-colors">
+                    <section.icon className="w-6 h-6 text-grey-dark group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-grow">
-                    <h3 className="font-semibold text-lg text-dark-text-primary mb-1 group-hover:text-primary-400 transition-colors">
+                    <h3 className="font-semibold text-lg text-grey-dark mb-1 group-hover:text-grey transition-colors">
                       {section.name}
                     </h3>
-                    <p className="text-sm text-dark-text-secondary">
+                    <p className="text-sm text-grey">
                       {section.description}
                     </p>
                   </div>

@@ -94,23 +94,23 @@ export const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
+      <header className="bg-gradient-grey shadow-sm border-b border-grey">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 to="/admin/dashboard"
-                className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2 hover:bg-grey rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-dark-text-primary" />
+                <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-primary-300">
+                <h1 className="font-display text-2xl font-bold text-beige-light">
                   Profile Settings
                 </h1>
-                <p className="text-sm text-dark-text-secondary">
+                <p className="text-sm text-beige">
                   Manage your public profile information
                 </p>
               </div>
@@ -129,7 +129,7 @@ export const Profile = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             {/* Profile Image */}
             <div className="card">
-              <h2 className="font-display text-xl font-bold text-dark-text-primary mb-6">
+              <h2 className="font-display text-xl font-bold text-grey-dark mb-6">
                 Profile Image
               </h2>
               <ImageUpload
@@ -144,19 +144,19 @@ export const Profile = () => {
 
             {/* Basic Information */}
             <div className="card">
-              <h2 className="font-display text-xl font-bold text-dark-text-primary mb-6">
+              <h2 className="font-display text-xl font-bold text-grey-dark mb-6">
                 Basic Information
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Full Name *
                   </label>
                   <input
                     {...register('name')}
                     type="text"
                     className="input-field"
-                    placeholder="Maria Skidmore"
+                    placeholder="Kate Skidmore"
                   />
                   {errors.name && (
                     <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
@@ -164,7 +164,7 @@ export const Profile = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Title *
                   </label>
                   <input
@@ -179,14 +179,14 @@ export const Profile = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Email *
                   </label>
                   <input
                     {...register('email')}
                     type="email"
                     className="input-field"
-                    placeholder="maria@example.com"
+                    placeholder="kate@example.com"
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
@@ -194,7 +194,7 @@ export const Profile = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Phone
                   </label>
                   <input
@@ -209,7 +209,7 @@ export const Profile = () => {
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Location
                   </label>
                   <input
@@ -227,7 +227,7 @@ export const Profile = () => {
 
             {/* Biography */}
             <div className="card">
-              <h2 className="font-display text-xl font-bold text-dark-text-primary mb-6">
+              <h2 className="font-display text-xl font-bold text-grey-dark mb-6">
                 Biography
               </h2>
               <RichTextEditor

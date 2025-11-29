@@ -11,7 +11,7 @@ export const Music = () => {
   }
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4 bg-dark-background">
+    <div className="min-h-screen pt-32 pb-20 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           className="text-center mb-16"
@@ -19,10 +19,10 @@ export const Music = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-display text-5xl lg:text-6xl font-bold text-primary-200 mb-4">
+          <h1 className="font-display text-5xl lg:text-6xl font-bold text-purple mb-4">
             Music
           </h1>
-          <p className="text-lg text-dark-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-grey max-w-2xl mx-auto">
             Explore my musical recordings and performances
           </p>
         </motion.div>
@@ -54,16 +54,16 @@ export const Music = () => {
                 </div>
 
                 {/* Info */}
-                <h3 className="font-display text-xl font-bold text-dark-text-primary mb-2 group-hover:text-primary-400 transition-colors">
+                <h3 className="font-display text-xl font-bold text-grey-dark mb-2 group-hover:text-primary-600 transition-colors">
                   {item.title}
                 </h3>
                 {item.artist && (
-                  <p className="text-sm text-dark-text-secondary mb-2">
+                  <p className="text-sm text-grey mb-2">
                     {item.artist}
                   </p>
                 )}
                 {item.description && (
-                  <p className="text-sm text-dark-text-secondary mb-4 line-clamp-2">
+                  <p className="text-sm text-grey mb-4 line-clamp-2">
                     {item.description}
                   </p>
                 )}
@@ -96,8 +96,8 @@ export const Music = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <MusicIcon className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-            <p className="text-dark-text-secondary">
+            <MusicIcon className="w-16 h-16 text-grey mx-auto mb-4" />
+            <p className="text-grey">
               No music has been added yet. Check back soon!
             </p>
           </motion.div>

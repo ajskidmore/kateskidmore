@@ -35,7 +35,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-gray-900 via-primary-900/20 to-gray-900">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-white">
       <motion.div
         className="w-full max-w-md"
         initial={{ opacity: 0, y: 20 }}
@@ -45,13 +45,13 @@ export const Login = () => {
         <div className="card">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-500 text-white rounded-full mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-grey-dark text-white rounded-full mb-4">
               <Lock className="w-8 h-8" />
             </div>
-            <h1 className="font-display text-3xl font-bold text-primary-200 mb-2">
+            <h1 className="font-display text-3xl font-bold text-grey-dark mb-2">
               Admin Login
             </h1>
-            <p className="text-sm text-dark-text-secondary">
+            <p className="text-sm text-grey">
               Enter your credentials to access the dashboard
             </p>
           </div>
@@ -62,7 +62,7 @@ export const Login = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-dark-text-primary mb-2"
+                className="block text-sm font-medium text-grey-dark mb-2"
               >
                 Email
               </label>
@@ -85,7 +85,7 @@ export const Login = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-dark-text-primary mb-2"
+                className="block text-sm font-medium text-grey-dark mb-2"
               >
                 Password
               </label>
@@ -135,7 +135,7 @@ export const Login = () => {
           <div className="mt-6 text-center">
             <a
               href="/"
-              className="text-sm text-primary-400 hover:underline"
+              className="text-sm text-grey hover:text-grey-dark hover:underline"
             >
               ← Back to website
             </a>

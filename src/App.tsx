@@ -1,9 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// @ts-ignore - Apollo Client v4 exports issue
+import { ApolloProvider } from '@apollo/client/react';
 import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { ProtectedRoute } from './components/common/ProtectedRoute';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
+import apolloClient from './graphql/client';
 
 // Public Pages
 import Home from './pages/Home';
@@ -24,6 +27,7 @@ import EventsManager from './pages/admin/EventsManager';
 import PostsManager from './pages/admin/PostsManager';
 import MessagesViewer from './pages/admin/MessagesViewer';
 import SocialLinksEditor from './pages/admin/SocialLinksEditor';
+import FeaturedContentManager from './pages/admin/FeaturedContentManager';
 
 // Layout wrapper for public pages
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
@@ -38,9 +42,10 @@ const PublicLayout = ({ children }: { children: React.ReactNode }) => {
 
 function App() {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <Router>
+    <ApolloProvider client={apolloClient}>
+      <ThemeProvider>
+        <AuthProvider>
+          <Router>
           <Routes>
             {/* Public Routes */}
             <Route
@@ -176,10 +181,19 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/admin/featured"
+              element={
+                <ProtectedRoute>
+                  <FeaturedContentManager />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
-        </Router>
-      </AuthProvider>
-    </ThemeProvider>
+          </Router>
+        </AuthProvider>
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }
 

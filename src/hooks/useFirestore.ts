@@ -268,21 +268,11 @@ export const useVideoById = (id: string | null) => {
 
 // Events hooks
 export const useUpcomingEvents = () => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return useCollection(COLLECTIONS.EVENTS, [
-    where('date', '>=', today),
-    orderBy('date', 'asc'),
-  ]);
+  return useCollection(COLLECTIONS.EVENTS, [orderBy('date', 'asc')]);
 };
 
 export const usePastEvents = () => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return useCollection(COLLECTIONS.EVENTS, [
-    where('date', '<', today),
-    orderBy('date', 'desc'),
-  ]);
+  return useCollection(COLLECTIONS.EVENTS, [orderBy('date', 'desc')]);
 };
 
 export const useEventById = (id: string | null) => {
@@ -291,10 +281,7 @@ export const useEventById = (id: string | null) => {
 
 // Posts hooks
 export const usePublishedPosts = () => {
-  return useCollection(COLLECTIONS.POSTS, [
-    where('published', '==', true),
-    orderBy('publishDate', 'desc'),
-  ]);
+  return useCollection(COLLECTIONS.POSTS, [orderBy('publishDate', 'desc')]);
 };
 
 export const useAllPosts = () => {

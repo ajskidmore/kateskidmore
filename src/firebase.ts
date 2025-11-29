@@ -30,6 +30,7 @@ export const COLLECTIONS = {
   POSTS: 'posts',
   CONTACT_MESSAGES: 'contactMessages',
   SOCIAL_LINKS: 'socialLinks',
+  SETTINGS: 'settings',
 } as const;
 
 // Storage folder paths

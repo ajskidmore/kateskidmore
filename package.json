@@ -1,9 +1,10 @@
 {
-  "name": "mariaskidmore",
+  "name": "kateskidmore",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@apollo/client": "^4.0.9",
+    "@graphql-tools/schema": "^10.0.30",
     "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/forms": "^0.5.10",
     "@testing-library/dom": "^10.4.1",
@@ -17,6 +18,7 @@
     "firebase": "^12.6.0",
     "framer-motion": "^12.23.24",
     "graphql": "^16.12.0",
+    "graphql-tag": "^2.12.6",
     "lucide-react": "^0.555.0",
     "postcss": "^8.5.6",
     "react": "^19.2.0",

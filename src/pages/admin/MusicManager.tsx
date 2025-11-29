@@ -115,23 +115,23 @@ export const MusicManager = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm border-b border-gray-700">
+      <header className="bg-gradient-grey shadow-sm border-b border-grey">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 to="/admin/dashboard"
-                className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2 hover:bg-grey rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-dark-text-primary" />
+                <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-primary-300">
+                <h1 className="font-display text-2xl font-bold text-beige-light">
                   Music Manager
                 </h1>
-                <p className="text-sm text-dark-text-secondary">
+                <p className="text-sm text-beige">
                   Manage your music and recordings
                 </p>
               </div>
@@ -161,14 +161,14 @@ export const MusicManager = () => {
               className="card mb-8"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="font-display text-xl font-bold text-dark-text-primary">
+                <h2 className="font-display text-xl font-bold text-grey-dark">
                   {editingId ? 'Edit Music' : 'Add New Music'}
                 </h2>
                 <button
                   onClick={handleCancelEdit}
-                  className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                  className="p-2 hover:bg-grey rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-dark-text-primary" />
+                  <X className="w-5 h-5 text-grey-dark" />
                 </button>
               </div>
 
@@ -185,7 +185,7 @@ export const MusicManager = () => {
 
                 {/* Title */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Title *
                   </label>
                   <input
@@ -201,7 +201,7 @@ export const MusicManager = () => {
 
                 {/* Artist */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Artist
                   </label>
                   <input
@@ -214,7 +214,7 @@ export const MusicManager = () => {
 
                 {/* Description */}
                 <div>
-                  <label className="block text-sm font-medium text-dark-text-primary mb-2">
+                  <label className="block text-sm font-medium text-grey-dark mb-2">
                     Description
                   </label>
                   <textarea
@@ -228,13 +228,13 @@ export const MusicManager = () => {
                 {/* Streaming Links */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <label className="block text-sm font-medium text-dark-text-primary">
+                    <label className="block text-sm font-medium text-grey-dark">
                       Streaming Links
                     </label>
                     <button
                       type="button"
                       onClick={addStreamingLink}
-                      className="text-sm text-primary-400 hover:text-primary-300"
+                      className="text-sm text-grey-dark hover:text-grey-dark"
                     >
                       + Add Link
                     </button>
@@ -259,7 +259,7 @@ export const MusicManager = () => {
                         <button
                           type="button"
                           onClick={() => removeStreamingLink(index)}
-                          className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+                          className="p-2 hover:bg-grey rounded-lg transition-colors"
                         >
                           <Trash2 className="w-5 h-5 text-red-400" />
                         </button>
@@ -273,7 +273,7 @@ export const MusicManager = () => {
                   <button
                     type="button"
                     onClick={handleCancelEdit}
-                    className="px-6 py-2 bg-gray-700 text-dark-text-primary rounded-lg hover:bg-gray-600 transition-colors"
+                    className="px-6 py-2 bg-grey text-grey-dark rounded-lg hover:bg-grey-dark transition-colors"
                   >
                     Cancel
                   </button>
@@ -312,7 +312,7 @@ export const MusicManager = () => {
                 className="card group"
               >
                 {/* Cover Image */}
-                <div className="relative aspect-square mb-4 rounded-lg overflow-hidden bg-gray-800">
+                <div className="relative aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-grey">
                   {music.coverImageURL ? (
                     <img
                       src={music.coverImageURL}
@@ -321,13 +321,13 @@ export const MusicManager = () => {
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <MusicIcon className="w-16 h-16 text-gray-600" />
+                      <MusicIcon className="w-16 h-16 text-grey" />
                     </div>
                   )}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                     <button
                       onClick={() => handleEdit(music)}
-                      className="p-2 bg-primary-500 rounded-full hover:bg-primary-600 transition-colors"
+                      className="p-2 bg-grey-dark rounded-full hover:bg-grey transition-colors"
                     >
                       <Edit2 className="w-5 h-5 text-white" />
                     </button>
@@ -341,14 +341,14 @@ export const MusicManager = () => {
                 </div>
 
                 {/* Info */}
-                <h3 className="font-display text-lg font-bold text-dark-text-primary mb-1">
+                <h3 className="font-display text-lg font-bold text-grey-dark mb-1">
                   {music.title}
                 </h3>
                 {music.artist && (
-                  <p className="text-sm text-dark-text-secondary mb-2">{music.artist}</p>
+                  <p className="text-sm text-grey-dark mb-2">{music.artist}</p>
                 )}
                 {music.description && (
-                  <p className="text-sm text-dark-text-secondary mb-3 line-clamp-2">
+                  <p className="text-sm text-grey-dark mb-3 line-clamp-2">
                     {music.description}
                   </p>
                 )}
@@ -362,7 +362,7 @@ export const MusicManager = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs px-2 py-1 bg-primary-900/30 text-primary-300 rounded-full hover:bg-primary-900/50"
+                        className="inline-flex items-center gap-1 text-xs px-2 py-1 bg-gray-200 text-grey-dark rounded-full hover:bg-primary-900/50"
                       >
                         {link.platform}
                         <ExternalLink className="w-3 h-3" />
@@ -374,8 +374,8 @@ export const MusicManager = () => {
             ))
           ) : (
             <div className="col-span-full text-center py-20">
-              <MusicIcon className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <p className="text-dark-text-secondary">No music added yet. Click "Add Music" to get started.</p>
+              <MusicIcon className="w-16 h-16 text-grey mx-auto mb-4" />
+              <p className="text-beige">No music added yet. Click "Add Music" to get started.</p>
             </div>
           )}
         </div>

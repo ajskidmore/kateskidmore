@@ -14,7 +14,23 @@ export default {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        // Elegant classical music palette inspired by emilybear.com
+        // Light beige and dark grey palette
+        beige: {
+          light: '#f5ebe3',
+          DEFAULT: '#e6d5cb',
+          dark: '#d4c0b3',
+        },
+        grey: {
+          light: '#6c6d6f',
+          DEFAULT: '#484a4c',
+          dark: '#25272b',
+        },
+        purple: {
+          DEFAULT: '#8994f2',
+          light: '#a5aef5',
+          dark: '#6d7aef',
+        },
+        // Keep primary colors for accent
         primary: {
           50: '#f0f4f8',
           100: '#d9e2ec',
@@ -53,8 +69,9 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-hero': 'linear-gradient(135deg, #102a43 0%, #243b53 50%, #334e68 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #6c6d6f 0%, #484a4c 50%, #25272b 100%)',
         'gradient-accent': 'linear-gradient(135deg, #ff3d81 0%, #e60067 100%)',
+        'gradient-grey': 'linear-gradient(to bottom, #6c6d6f 0%, #25272b 100%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

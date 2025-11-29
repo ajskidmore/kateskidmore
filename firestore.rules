@@ -39,13 +39,19 @@ service cloud.firestore {
     }
     
     // Contact messages - anyone can create, only authenticated can read/update/delete
-    match /contact_messages/{messageId} {
+    match /contactMessages/{messageId} {
       allow create: if true;
       allow read, update, delete: if isAuthenticated();
     }
-    
+
     // Social links - public read, authenticated write
-    match /social_links/{socialId} {
+    match /socialLinks/{socialId} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+
+    // Settings collection - public read, authenticated write
+    match /settings/{settingId} {
       allow read: if true;
       allow write: if isAuthenticated();
     }
