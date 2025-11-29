@@ -34,17 +34,17 @@ export const Dashboard = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-display text-2xl font-bold text-beige-light">
+              <h1 className="font-display text-2xl font-bold text-white">
                 Admin Dashboard
               </h1>
-              <p className="text-sm text-beige">
+              <p className="text-sm text-white/80">
                 Welcome back, {user?.email}
               </p>
             </div>
             <div className="flex items-center gap-4">
               <Link
                 to="/"
-                className="text-sm text-beige hover:text-white hover:underline"
+                className="text-sm text-white/80 hover:text-white hover:underline"
               >
                 View Site
               </Link>
@@ -86,7 +86,7 @@ export const Dashboard = () => {
             >
               <Link
                 to={section.path}
-                className="block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-beige-dark group"
+                className="block p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200 group"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center group-hover:bg-grey-dark transition-colors">

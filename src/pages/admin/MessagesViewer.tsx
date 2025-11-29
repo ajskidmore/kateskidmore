@@ -53,10 +53,10 @@ export const MessagesViewer = () => {
                 <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-beige-light">
+                <h1 className="font-display text-2xl font-bold text-white">
                   Contact Messages
                 </h1>
-                <p className="text-sm text-beige">
+                <p className="text-sm text-white/80">
                   View and manage contact form submissions
                 </p>
               </div>
@@ -123,7 +123,7 @@ export const MessagesViewer = () => {
                       </div>
                     )}
 
-                    <div className="flex items-center gap-2 text-xs text-beige">
+                    <div className="flex items-center gap-2 text-xs text-white/80">
                       <Clock className="w-3 h-3" />
                       <span>{formatDate(message.createdAt)}</span>
                     </div>
@@ -163,7 +163,7 @@ export const MessagesViewer = () => {
           ) : (
             <div className="text-center py-20">
               <Mail className="w-16 h-16 text-grey mx-auto mb-4" />
-              <p className="text-beige">No messages yet.</p>
+              <p className="text-white/80">No messages yet.</p>
             </div>
           )}
         </div>

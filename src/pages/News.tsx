@@ -37,7 +37,7 @@ export const News = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="font-display text-5xl lg:text-6xl font-bold text-purple mb-4">
-            News
+            Articles
           </h1>
           <p className="text-lg text-grey max-w-2xl mx-auto">
             Latest updates and announcements

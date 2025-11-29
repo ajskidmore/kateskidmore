@@ -72,6 +72,10 @@ export default {
         'gradient-hero': 'linear-gradient(135deg, #6c6d6f 0%, #484a4c 50%, #25272b 100%)',
         'gradient-accent': 'linear-gradient(135deg, #ff3d81 0%, #e60067 100%)',
         'gradient-grey': 'linear-gradient(to bottom, #6c6d6f 0%, #25272b 100%)',
+        'gradient-purple': 'linear-gradient(135deg, #6d7aef 0%, #8994f2 50%, #a5aef5 100%)',
+      },
+      textShadow: {
+        'purple': '0 2px 10px rgba(137, 148, 242, 0.3), 0 0 20px rgba(137, 148, 242, 0.2)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

@@ -152,13 +152,13 @@ export const PostsManager = () => {
                 to="/admin/dashboard"
                 className="p-2 hover:bg-grey rounded-lg transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-beige-light" />
+                <ArrowLeft className="w-5 h-5 text-white" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-beige-light">
+                <h1 className="font-display text-2xl font-bold text-white">
                   Posts Manager
                 </h1>
-                <p className="text-sm text-beige">
+                <p className="text-sm text-white/80">
                   Manage blog posts and news updates
                 </p>
               </div>
@@ -328,9 +328,9 @@ export const PostsManager = () => {
                       <input
                         {...register('published')}
                         type="checkbox"
-                        className="w-5 h-5 text-grey-dark bg-grey border-beige-dark rounded focus:ring-primary-500"
+                        className="w-5 h-5 text-grey-dark bg-grey border-gray-200 rounded focus:ring-primary-500"
                       />
-                      <span className="text-sm text-beige-light">Published</span>
+                      <span className="text-sm text-white">Published</span>
                     </label>
                   </div>
                 </div>
@@ -465,7 +465,7 @@ export const PostsManager = () => {
           ) : (
             <div className="col-span-full text-center py-20">
               <FileText className="w-16 h-16 text-grey mx-auto mb-4" />
-              <p className="text-beige">No posts added yet. Click "Add Post" to get started.</p>
+              <p className="text-white/80">No posts added yet. Click "Add Post" to get started.</p>
             </div>
           )}
         </div>

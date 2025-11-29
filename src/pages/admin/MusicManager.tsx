@@ -128,10 +128,10 @@ export const MusicManager = () => {
                 <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-beige-light">
+                <h1 className="font-display text-2xl font-bold text-white">
                   Music Manager
                 </h1>
-                <p className="text-sm text-beige">
+                <p className="text-sm text-white/80">
                   Manage your music and recordings
                 </p>
               </div>
@@ -375,7 +375,7 @@ export const MusicManager = () => {
           ) : (
             <div className="col-span-full text-center py-20">
               <MusicIcon className="w-16 h-16 text-grey mx-auto mb-4" />
-              <p className="text-beige">No music added yet. Click "Add Music" to get started.</p>
+              <p className="text-white/80">No music added yet. Click "Add Music" to get started.</p>
             </div>
           )}
         </div>

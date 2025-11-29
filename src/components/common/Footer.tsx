@@ -40,20 +40,20 @@ export const Footer = () => {
     { name: 'Music', path: '/music' },
     { name: 'Videos', path: '/videos' },
     { name: 'Events', path: '/events' },
-    { name: 'News', path: '/news' },
+    { name: 'Articles', path: '/news' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <footer className="bg-gradient-grey border-t border-grey">
+    <footer className="bg-gradient-purple border-t border-purple-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-display text-2xl font-bold text-beige-light">
+            <h3 className="font-display text-2xl font-bold text-white">
               Kate Skidmore
             </h3>
-            <p className="text-sm text-beige max-w-xs">
+            <p className="text-sm text-white/90 max-w-xs">
               Violinist, Pianist, Music Director - Bringing classical music to life through performance and education.
             </p>
           </div>
@@ -68,7 +68,7 @@ export const Footer = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="text-sm text-beige hover:text-white transition-colors w-fit"
+                  className="text-sm text-white/80 hover:text-white transition-colors w-fit"
                 >
                   {link.name}
                 </Link>
@@ -88,7 +88,7 @@ export const Footer = () => {
                     href={socialLinks.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-grey-dark hover:bg-white text-beige hover:text-grey-dark transition-colors"
+                    className="p-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-purple transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="Instagram"
@@ -101,7 +101,7 @@ export const Footer = () => {
                     href={socialLinks.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-grey-dark hover:bg-white text-beige hover:text-grey-dark transition-colors"
+                    className="p-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-purple transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="Facebook"
@@ -114,7 +114,7 @@ export const Footer = () => {
                     href={socialLinks.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-grey-dark hover:bg-white text-beige hover:text-grey-dark transition-colors"
+                    className="p-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-purple transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="YouTube"
@@ -127,7 +127,7 @@ export const Footer = () => {
                     href={socialLinks.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-grey-dark hover:bg-white text-beige hover:text-grey-dark transition-colors"
+                    className="p-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-purple transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="Twitter"
@@ -140,7 +140,7 @@ export const Footer = () => {
                     href={socialLinks.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-grey-dark hover:bg-white text-beige hover:text-grey-dark transition-colors"
+                    className="p-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-purple transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="Spotify"
@@ -150,7 +150,7 @@ export const Footer = () => {
                 )}
               </div>
             ) : (
-              <p className="text-sm text-beige">
+              <p className="text-sm text-white/80">
                 Follow me on social media for updates
               </p>
             )}
@@ -158,15 +158,15 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-grey">
+        <div className="pt-8 border-t border-white/20">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-beige text-center sm:text-left">
+            <p className="text-sm text-white/80 text-center sm:text-left">
               &copy; {currentYear} Kate Skidmore. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link
                 to="/admin"
-                className="text-xs text-beige hover:text-white transition-colors"
+                className="text-xs text-white/80 hover:text-white transition-colors"
               >
                 Admin
               </Link>

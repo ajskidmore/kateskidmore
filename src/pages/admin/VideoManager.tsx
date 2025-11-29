@@ -101,10 +101,10 @@ export const VideoManager = () => {
                 <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-beige-light">
+                <h1 className="font-display text-2xl font-bold text-white">
                   Video Manager
                 </h1>
-                <p className="text-sm text-beige">
+                <p className="text-sm text-white/80">
                   Manage your video content
                 </p>
               </div>
@@ -298,7 +298,7 @@ export const VideoManager = () => {
           ) : (
             <div className="col-span-full text-center py-20">
               <VideoIcon className="w-16 h-16 text-grey mx-auto mb-4" />
-              <p className="text-beige">No videos added yet. Click "Add Video" to get started.</p>
+              <p className="text-white/80">No videos added yet. Click "Add Video" to get started.</p>
             </div>
           )}
         </div>

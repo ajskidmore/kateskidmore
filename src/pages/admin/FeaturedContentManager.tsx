@@ -100,13 +100,13 @@ export const FeaturedContentManager = () => {
                 className="p-2 hover:bg-grey rounded-lg transition-colors"
                 aria-label="Back to dashboard"
               >
-                <ArrowLeft className="w-5 h-5 text-beige-light" />
+                <ArrowLeft className="w-5 h-5 text-white" />
               </button>
               <div>
-                <h1 className="font-display text-2xl font-bold text-beige-light">
+                <h1 className="font-display text-2xl font-bold text-white">
                   Featured Content
                 </h1>
-                <p className="text-sm text-beige">
+                <p className="text-sm text-white/80">
                   Select content to feature on the home page
                 </p>
               </div>

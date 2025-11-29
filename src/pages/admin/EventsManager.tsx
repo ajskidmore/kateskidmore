@@ -133,10 +133,10 @@ export const EventsManager = () => {
                 <ArrowLeft className="w-5 h-5 text-grey-dark" />
               </Link>
               <div>
-                <h1 className="font-display text-2xl font-bold text-beige-light">
+                <h1 className="font-display text-2xl font-bold text-white">
                   Events Manager
                 </h1>
-                <p className="text-sm text-beige">
+                <p className="text-sm text-white/80">
                   Manage upcoming performances and events
                 </p>
               </div>
@@ -364,7 +364,7 @@ export const EventsManager = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2 mt-4 pt-4 border-t border-beige-dark">
+                <div className="flex gap-2 mt-4 pt-4 border-t border-gray-200">
                   <button
                     onClick={() => handleEdit(event)}
                     className="flex-1 p-2 bg-grey-dark rounded-lg hover:bg-grey transition-colors flex items-center justify-center gap-2"
