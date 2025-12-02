@@ -55,7 +55,7 @@ export const FeaturedContent = () => {
             </svg>
             Powered by GraphQL
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-grey-dark mb-4">
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-purple mb-4">
             Featured Content
           </h2>
         </motion.div>

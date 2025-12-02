@@ -81,7 +81,7 @@ export const Home = () => {
             </a>
             <a
               href="/contact"
-              className="px-8 py-3 text-lg border-2 border-grey text-grey rounded-full hover:bg-grey hover:text-white transition-colors font-medium"
+              className="px-8 py-3 text-lg border-2 border-purple text-purple rounded-full hover:bg-purple hover:text-white transition-colors font-medium"
             >
               Get in Touch
             </a>
